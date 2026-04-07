@@ -185,32 +185,13 @@
 import authHeader from "./authHeader";
 import axios from "axios";
 
-// Auth routes (login/register)
-// const AUTH_URL = "http://localhost:5000/api/auth";
-// const AUTH_URL = "http://localhost:5000/api/users";
 
-// // User routes (profile/export)
-// const USER_URL = "http://localhost:5000/api/users";
-
-// const AUTH_URL = process.env.REACT_APP_API_URL + "/api/users";
-// const USER_URL = process.env.REACT_APP_API_URL + "/api/users";
 const AUTH_URL = `${process.env.REACT_APP_API_URL}/api/users`;
 const USER_URL = `${process.env.REACT_APP_API_URL}/api/users`;
 // ✅ REGISTER
 const register = async (userData) => {
   try {
     const response = await axios.post(`${AUTH_URL}/register`, userData);
-
-    // if (response.data?.accessToken) {
-    //   localStorage.setItem("token", response.data.accessToken);
-    // }
-    // if (response.data?.refreshToken) {
-    //   localStorage.setItem("refreshToken", response.data.refreshToken);
-    // }
-    // if (response.data?.user) {
-    //   localStorage.setItem("user", JSON.stringify(response.data.user));
-    // }
-
     return response.data;
   } catch (error) {
     console.error("Register failed:", error.response?.data || error.message);
@@ -219,6 +200,35 @@ const register = async (userData) => {
 };
 
 // ✅ LOGIN
+// const login = async (userData) => {
+//   try {
+//     const response = await axios.post(`${AUTH_URL}/login`, userData);
+
+//     if (response.data?.accessToken) {
+//       localStorage.setItem("token", response.data.accessToken);
+//     }
+//     if (response.data?.refreshToken) {
+//       localStorage.setItem("refreshToken", response.data.refreshToken);
+//     }
+//     if (response.data?.user) {
+//       localStorage.setItem("user", JSON.stringify(response.data.user));
+//     }
+
+//     // redirect based on role
+//     if (response.data.user.role === "admin") {
+//       window.location.href = "/admin"; 
+//     } else {
+//       //changed to admin-dashboard from dashboard
+//       window.location.href = "/admin-dashboard";
+//     }
+
+//     return response.data;
+//   } catch (error) {
+//     console.error("Login failed:", error.response?.data || error.message);
+//     throw error;
+//   }
+// };
+
 const login = async (userData) => {
   try {
     const response = await axios.post(`${AUTH_URL}/login`, userData);
@@ -231,14 +241,6 @@ const login = async (userData) => {
     }
     if (response.data?.user) {
       localStorage.setItem("user", JSON.stringify(response.data.user));
-    }
-
-    // redirect based on role
-    if (response.data.user.role === "admin") {
-      window.location.href = "/admin"; 
-    } else {
-      //changed to admin-dashboard from dashboard
-      window.location.href = "/admin-dashboard";
     }
 
     return response.data;

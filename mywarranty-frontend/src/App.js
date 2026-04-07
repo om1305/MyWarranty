@@ -343,12 +343,12 @@ import ExpiredWarranties from './components/ExpiredWarranties';
 import Settings from './components/Settings';
 import ForgotPassword from './components/ForgotPassword';
 import ResetPassword from './components/ResetPassword';
-import AdminDashboard from './components/AdminDashboard';
-import AdminUserManagement from './components/AdminUserManagement';
-import AdminAllBills from './components/AdminAllBills';
-import AdminAllWarranties from './components/AdminAllWarranties';
-import AdminSettings from './components/AdminSettings';
-import LandingPage from './components/LandingPage';
+// import AdminDashboard from './components/AdminDashboard';
+// import AdminUserManagement from './components/AdminUserManagement';
+// import AdminAllBills from './components/AdminAllBills';
+// import AdminAllWarranties from './components/AdminAllWarranties';
+// import AdminSettings from './components/AdminSettings';
+// import LandingPage from './components/LandingPage';
 
 function App() {
   const navigate = useNavigate();
@@ -432,7 +432,7 @@ function App() {
             />
 
             {/* Admin protected routes */}
-            <Route
+            {/* <Route
               path="/admin-dashboard"
               element={
                 <PrivateRoute adminOnly>
@@ -471,7 +471,7 @@ function App() {
                   <AdminSettings />
                 </PrivateRoute>
               }
-            />
+            /> */}
           </Routes>
         </main>
       </div>

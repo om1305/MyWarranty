@@ -238,21 +238,32 @@ const Login = () => {
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await authService.login({ email, password });
+//   const onSubmit = async (e) => {
+//     e.preventDefault();
+//     try {
+//       const res = await authService.login({ email, password });
 
-      if (res.user?.role === 'admin') {
-        navigate('/admin-dashboard');
-      } else {
-        navigate('/dashboard');
-      }
-    } catch (error) {
-      console.error('Login failed:', error.response?.data?.msg);
-      alert(error.response?.data?.msg || 'Login failed');
-    }
-  };
+//       if (res.user?.role === 'admin') {
+//         navigate('/admin-dashboard');
+//       } else {
+//         navigate('/dashboard');
+//       }
+//     } catch (error) {
+//       console.error('Login failed:', error.response?.data?.msg);
+//       alert(error.response?.data?.msg || 'Login failed');
+//     }
+//   };
+
+const onSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    await authService.login({ email, password });
+    navigate('/dashboard');
+  } catch (error) {
+    console.error('Login failed:', error.response?.data?.msg);
+    alert(error.response?.data?.msg || 'Login failed');
+  }
+};
 
   return (
     <Container
