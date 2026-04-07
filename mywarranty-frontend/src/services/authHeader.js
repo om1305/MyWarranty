@@ -10,13 +10,28 @@
 //     return {};
 //   }
 // }
-export default function authHeader() {
-  const accessToken = localStorage.getItem("accessToken");
+// export default function authHeader() {
+//   const accessToken = localStorage.getItem("accessToken");
 
-  if (accessToken) {
-    return { headers: { Authorization: "Bearer " + accessToken } };
-  } else {
-    return {};
+//   if (accessToken) {
+//     return { headers: { Authorization: "Bearer " + accessToken } };
+//   } else {
+//     return {};
+//   }
+// }
+
+export default function authHeader() {
+  const token =
+    localStorage.getItem('token') || localStorage.getItem('accessToken');
+
+  if (token) {
+    return {
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    };
   }
+
+  return {};
 }
 
