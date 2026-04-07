@@ -897,8 +897,7 @@ const Dashboard = () => {
     // NEW: image preview modal state
     const [previewImage, setPreviewImage] = useState(null);
 
-    const BASE_URL = 'http://localhost:5000';
-
+    const BASE_URL = process.env.REACT_APP_API_URL;
     useEffect(() => {
         const storedUser = JSON.parse(localStorage.getItem("user"));
         setUser(storedUser);
