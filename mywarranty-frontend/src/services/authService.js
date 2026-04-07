@@ -187,11 +187,15 @@ import axios from "axios";
 
 // Auth routes (login/register)
 // const AUTH_URL = "http://localhost:5000/api/auth";
-const AUTH_URL = "http://localhost:5000/api/users";
+// const AUTH_URL = "http://localhost:5000/api/users";
 
-// User routes (profile/export)
-const USER_URL = "http://localhost:5000/api/users";
+// // User routes (profile/export)
+// const USER_URL = "http://localhost:5000/api/users";
 
+// const AUTH_URL = process.env.REACT_APP_API_URL + "/api/users";
+// const USER_URL = process.env.REACT_APP_API_URL + "/api/users";
+const AUTH_URL = `${process.env.REACT_APP_API_URL}/api/users`;
+const USER_URL = `${process.env.REACT_APP_API_URL}/api/users`;
 // ✅ REGISTER
 const register = async (userData) => {
   try {
