@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const UPLOAD_URL = 'http://localhost:5000/api/upload';
-
+// const UPLOAD_URL = 'http://localhost:5000/api/upload';
+const UPLOAD_URL = `${process.env.REACT_APP_API_URL}/api/upload`;
 const authHeader = () => {
   const token = localStorage.getItem("token");
   if (token) {

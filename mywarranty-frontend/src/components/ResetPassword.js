@@ -109,7 +109,7 @@ const ResetPassword = () => {
 
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/users/reset-password/${token}`,
+        `${process.env.REACT_APP_API_URL}/api/users/reset-password/${token}`,
         { password }
       );
 
