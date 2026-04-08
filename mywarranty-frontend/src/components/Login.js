@@ -464,6 +464,9 @@ const Login = () => {
             >
               {loading ? 'Logging in...' : 'Login'}
             </Button>
+            <div className="text-center small text-muted mt-2" style={{ minHeight: '20px' }}>
+  {loading && "Starting server, please wait..."}
+</div>
 
             <div className="d-flex align-items-center my-3">
               <hr className="flex-grow-1" style={{ borderColor: '#ddd' }} />
